@@ -1,0 +1,134 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #cccccc;
+    box-sizing: border-box;
+    color: white;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    /* height:100vh; */
+}
+
+a {
+    color: inherit;
+}
+
+ul#bubbleTree li#hickhopLink {
+    background-color: hsla(20, 0%, 30%, 50%);
+    background-image: url('../img/hickhop.png');
+    background-size: auto 70%;
+    background-position: 110% 90%;
+    background-repeat: no-repeat;
+    /* position:absolute; */
+    padding:0;
+}
+
+ul#bubbleTree li#hickhopLink:hover {
+    background-color: hsla(20, 0%, 30%, 80%);
+}
+
+ul#bubbleTree li#hickhopLink > * {
+    position:absolute;
+}
+
+ul#bubbleTree li#hickhopLink > h2 {
+    top:0;
+    margin-top:0;
+    width:100%;
+    text-align: center;
+}
+
+ul#bubbleTree li#hickhopLink > p {
+    top:30%;
+    left:8%;
+    width:50%;
+    text-align: right;
+    padding:0;
+}
+
+ul#bubbleTree li#codingSummary {
+    background-color: hsla(20, 0%, 30%, 50%);
+}
+
+ul#bubbleTree li#YouTubeLink, ul#bubbleTree li#LinkedInLink, ul#bubbleTree li#InstagramLink, ul#bubbleTree li#snailMailLink {
+    background-color: rgba(255,255,255,0.5);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul#bubbleTree li#YouTubeLink {
+    background-image: url('../img/yt.png');
+    background-size: 76%;
+}
+
+ul#bubbleTree li#LinkedInLink {
+    background-image: url('../img/LinkedIn_icon.svg');
+    background-size: 60%;
+}
+
+ul#bubbleTree li#contact {
+    /* background-image: url('../img/hi.png'); */
+}
+
+ul#bubbleTree li#YouTubeLink:hover, ul#bubbleTree li#LinkedInLink:hover, ul#bubbleTree li#InstagramLink:hover {
+    background-color: #fff;
+}
+
+ul#bubbleTree li#InstagramLink {
+    background-image: url('../img/Instagram_logo_2016.svg');
+    background-size: 66%;
+}
+
+ul#bubbleTree li#snailMailLink {
+    background-image: url('../img/email.svg');
+    background-size: 60%;
+    background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--alpha-value));
+}
+
+ul#bubbleTree li#snailMailLink:hover {
+    background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 1);
+}
+
+ul#bubbleTree li#sixteenSemis {
+    /* background-image: url(../img/16s.png);
+    background-size: 200%;
+    background-position: center; */
+    background-color: rgba(20,20,20, 0.6); 
+    /* background-blend-mode: overlay;  */
+}
+
+ul#bubbleTree li#sixteenSemis img {
+    width:80%;
+    left:10%;
+    pointer-events: none;
+    position: absolute;
+    top:40%;
+}
+
+ul#bubbleTree li#sixteenSemis p {
+    position: absolute;
+    top:55%;
+    left:10%;
+    width:70%;
+    padding:0;
+    /* background-color: black; */
+}
+
+ul#bubbleTree li#sixteenSemis p:first-of-type {
+    top:17%;
+    left:15%;
+    width:67%;
+}
+
+ul#bubbleTree li#sixteenSemis p {
+    /* background-color: rgba(0,0,0,0.6); */
+}
+
+ul#bubbleTree li#sixteenSemis:hover {
+    background-color: rgba(20,20,20,0.8); /* Adds a 40% opaque black overlay */
+}

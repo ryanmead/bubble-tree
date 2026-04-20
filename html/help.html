@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use bubble-tree</title>
+    <link rel="stylesheet" href="css/bubble-tree.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header><a href="#" id='bubbleTopLink' class="hidden"></a></header>
+<main>
+<ul id="bubbleTree">
+    <li>
+        <h1>welcome to bubble-tree</h1>
+        <ul>
+            <li>
+                <h2>purpose</h2>
+                <p>Use bubble-tree to dress up content-light sites such as personal home pages and placeholder sites.</p><p>If you can code a few nested &lt;ul&gt; lists, you can make a site like this one.</p>
+            </li>
+            <li>
+                <h2>the UX</h2>
+                <ul>
+                    <li>
+                        <h2>touching or clicking a circle</h2>
+                        <ul>
+                            <li>
+                                <p>Touching or clicking a circle zooms in our out on the list so that the circle fills the viewport or frame.</p>
+                            </li>
+                            <li>
+                                <p>When zoomed in, a link for returning to the top appears in the top left. It disappears when touched.</p>
+                            </li>
+                            <li>
+                                <p>Offsite links are disabled when they are very small. They become active when the user zooms in close enough.</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>portrait vs landscape</h3>
+                        <p>Nested &lt;ul&gt; lists are displayed to the right of their parent &lt;li&gt; elements. They add width, but not height, to their parents.</p>
+                        <p>At runtime, JavaScript sizes the list to fit the screen, regardless of the orientation of either.</p>
+                        <ul>
+                            <li>
+                                <p>Use one &lt;li&gt; element in your top-level &lt;ul&gt; list for a landscape orientation dominated by one large circle.</p>
+                            </li>
+                            <li>
+                                <p>Use two or more &lt;li&gt; elements for a portrait orientation.</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h1>Customizable</h1>
+                        <p>By default, background images are shown centered and scaled to cover the circle.</p>
+                        <ul>
+                            <li style="background-image: url('https://cataas.com/cat');">
+                            </li>
+                            <li style="background-image: url('https://picsum.photos/200');">
+                            </li>
+                            <li style="background-image: url('https://placecats.com/300/200');">
+                            </li>
+                                
+                        </ul>
+                    </li>
+                </ul>
+                
+            </li>
+        </ul>
+    </li>
+    <li>
+        <h1>how to deploy bubble-tree</h1>
+        <ul>
+            <li>
+                <h2>add<br>bubble-tree.css</h2>
+                <p>Add the file to your project and link to it from your html file</p>
+            </li>
+            <li>
+                <h2>add<br>bubble-tree.js</h2>
+                <p>Add the file to your project and link to it from your html file</p>
+            </li>
+            <li>
+                <h2>make<br>&lt;ul&nbsp;id=&quot;bubbleTree&quot;&gt;</h2>
+                <p>Create well-formed nested &lt;ul&gt; lists and give the highest UL tag the id "bubbleTree".</p>
+            </li>
+            <li>
+                <h2>add the &lt;a&gt; tag</h2>
+                <p>add<br>&lt;a href=&quot;#&quot; id=&quot;bubbleTopLink&quot; class=&quot;hidden&quot;&gt;</p>
+            </li>
+            <li>
+                <h2>should be done</h2>
+                <p>Congratulations! Now you're ready to make it your own.</p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <h1>limitations</h1>
+        <ul>
+            <li>
+                <h2>&lt;li&gt; tag can't contain plain text</h2>
+                <p>You need to put the content of the &lt;li&gt; tag inside a tag such as P, H1, H2, etc.</p>
+            </li>
+            <li>
+                <h2>Maximum 5 items per list</h2>
+                <p>This limitation could be easily overcome by building out more CSS classes, but I couldn't be bothered. It should be obvious if you are so inclined.</p>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script src="js/bubble-tree.js"></script>
+<script src="js/main.js"></script>
+</main>
+</html>

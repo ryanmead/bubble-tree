@@ -1,0 +1,239 @@
+        a#bubbleTopLink, ul#bubbleTree {
+            --primary-hue: 20;
+            --primary-saturation: 100%;
+            --primary-lightness: 49%;
+            --alpha-value: 0.6; /* Opacity value (0.0 to 1.0) */
+            --base-font-size: 5cqh;
+            --h1-font-size: 10cqh;
+            --h2-font-size: 8cqh;
+            --h3-font-size: 6cqh;
+        }
+        
+        a#bubbleTopLink {
+            display: block;
+            position: fixed;
+            top:0;
+            left:0;
+            height:8vh;
+            width:8vh;
+            border-radius: 50%;
+            background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--alpha-value));
+            /* background-image: url('../img/chevron-double.svg'); */
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 20 20" fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><path fill="%23ffffff" d="m 15.495797,17.978817 a 1,1 0 0 0 1.414,-1.414 l -6,-6 a 1,1 0 0 0 -1.4139999,0 l -6.0000001,6 a 1,1 0 0 0 1.414,1.414 l 5.293,-5.293 z m 0,-7.9999999 a 1,1 0 1 0 1.414,-1.414 l -6,-6.0000004 a 1,1 0 0 0 -1.4139999,0 L 3.495797,8.5648171 a 1,1 0 0 0 1.414,1.414 l 5.293,-5.2930004 z" id="path1"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center 44%;
+            background-size: 60%;
+            z-index: 100;
+            transition: display 0.7s ease, opacity 0.7s ease;
+            transition-behavior: allow-discrete;
+            opacity:0.8;
+        }
+
+        a#bubbleTopLink.hidden {
+            display:none;
+            opacity: 0;
+        }
+
+        ul#bubbleTree {
+
+            position:relative;
+            list-style-type: none;
+            padding-left: 0;
+            transition: transform 0.7s ease, translate 0.7s ease, scale 0.7s ease;  /* not sure how i'm doing transforms yet but this covers it off */
+            pointer-events:none;
+            /* transform-origin: top left; */
+            width:92vh;
+            height:92vh;
+            margin-left:0;
+            /* font-size:100%; */
+        }
+
+        @media (orientation: landscape) {
+        /* CSS for landscape orientation (width > height) */
+        }
+
+        @media (orientation: portrait) {
+        /* CSS for portrait orientation (height > width) */
+            ul#bubbleTree {
+                width:84vw;
+                height:84vw;
+            }
+        }
+
+        ul#bubbleTree, ul#bubbleTree * {
+            box-sizing: border-box;
+        }
+
+        ul#bubbleTree ul {
+            list-style-type: none;
+            position:absolute;
+            top:0;
+            left:0;
+            height:100%;
+            width:100%;
+            padding-left: 0;
+            pointer-events:none;
+        }
+
+        ul#bubbleTree > li:first-of-type {
+            background-color: hsla(20, 0%, 30%, 50%);
+        }
+
+        ul#bubbleTree li > * {
+            padding:0 14%;
+        }
+
+        ul#bubbleTree li > *:first-child {
+            padding-top: 14%;
+        }
+
+        ul#bubbleTree li > *:not(a) {
+            pointer-events:none;
+        }
+
+        ul#bubbleTree li a, ul#bubbleTree li a img {
+            pointer-events:auto;
+        }
+
+        ul#bubbleTree li {
+            position:absolute;
+            right:0;
+            border-radius:50%; 
+            background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--alpha-value));
+            /* background-color: hsla(20, 100%, 49%, 50%); */
+            pointer-events: auto;
+            container-type:size;
+            background-size: cover; /* this is usually what's wanted when someone sets background-image */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        ul#bubbleTree li:hover {
+            /* background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 1); */
+        }
+
+        ul#bubbleTree ul li {
+            cursor: zoom-in;
+            transform: translate(50%, 0);
+        }
+
+        ul#bubbleTree > li {
+            left:0;
+        }
+        
+        ul#bubbleTree li:not(:has(ul)) { /* leaf nodes */
+            /* overflow:hidden; */
+        }
+
+        ul#bubbleTree li:not(:has(ul)) * { /* children of leaf nodes */
+            /* pointer-events:auto; */
+        }
+
+        ul#bubbleTree h1, ul#bubbleTree h2, ul#bubbleTree h3, ul#bubbleTree h4, ul#bubbleTree h5, ul#bubbleTree h6 {
+            /* margin:0; */
+            margin-bottom:0;
+            line-height: 1em;
+        }
+        
+        ul#bubbleTree li * {
+            font-size:var(--base-font-size);
+        }        
+        
+        ul#bubbleTree p {
+            margin-top:0.5em;
+            /* margin:0; */
+        }
+
+        ul#bubbleTree h1 {
+            font-size: var(--h1-font-size);
+        }
+        
+        ul#bubbleTree h2 {
+            font-size: var(--h2-font-size);
+        }
+        
+        ul#bubbleTree h3 {
+            font-size: var(--h3-font-size);
+        }
+
+        /* for vertical positioning based on number of siblings */
+        /* you can easily expand for >5 siblings if you want, just add more pseudoclasses */
+        /* first item, regardless of number of siblings */
+        li:first-of-type {
+            top:0;
+        }
+
+        /* one sibling */
+        li:first-of-type:nth-last-of-type(1) {
+        /* -or- li:only-of-type { */
+            width: 100%;
+            height: 100%;
+        }
+
+        /* two siblings */
+        li:first-of-type:nth-last-of-type(2),
+        li:first-of-type:nth-last-of-type(2) ~ li {
+            width: 50%;
+            height: 50%;
+        }
+
+        li:first-of-type:nth-last-of-type(2) ~ li:last-of-type {
+            top:50%;
+        }
+
+        /* three siblings */
+        li:first-of-type:nth-last-of-type(3),
+        li:first-of-type:nth-last-of-type(3) ~ li {
+            width: 33.3333%;
+            height: 33.3333%;
+        }
+
+        li:first-of-type:nth-last-of-type(3) ~ li:nth-of-type(2) {
+            top:33.3333%;
+        }
+
+        li:first-of-type:nth-last-of-type(3) ~ li:last-of-type {
+            top:66.6666%;
+        }
+
+        /* four siblings */
+        li:first-of-type:nth-last-of-type(4),
+        li:first-of-type:nth-last-of-type(4) ~ li {
+            width: 25%;
+            height: 25%;
+        }
+        
+        li:first-of-type:nth-last-of-type(4) ~ li:nth-of-type(2) {
+            top: 25%;
+        }
+        
+        li:first-of-type:nth-last-of-type(4) ~ li:nth-of-type(3) {
+            top: 50%;
+        }
+        
+        li:first-of-type:nth-last-of-type(4) ~ li:nth-of-type(4) {
+            top: 75%;
+        }
+
+        /* five siblings */
+        li:first-of-type:nth-last-of-type(5),
+        li:first-of-type:nth-last-of-type(5) ~ li {
+            width: 20%;
+            height: 20%;
+        }
+        
+        li:first-of-type:nth-last-of-type(5) ~ li:nth-of-type(2) {
+            top: 20%;
+        }
+        
+        li:first-of-type:nth-last-of-type(5) ~ li:nth-of-type(3) {
+            top: 40%;
+        }
+        
+        li:first-of-type:nth-last-of-type(5) ~ li:nth-of-type(4) {
+            top: 60%;
+        }
+        
+        li:first-of-type:nth-last-of-type(5) ~ li:nth-of-type(5) {
+            top: 80%;
+        }
