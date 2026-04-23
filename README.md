@@ -4,7 +4,7 @@ Quickly and easily turn a few boring nested `<ul>...</ul>` lists into an attract
 **bubble-tree** is ideal for presenting hierarchical data, such as social media landing pages, personal CVs, and placeholder sites. **bubble-tree** styles every `<li>` tag as a "bubble" (a circle with a semitransparent background) and arranges the bubbles to show the data hierarchy.
 ## Benefits
 ### Intuitive Navigation
-Deeply nested information in a multi-level list tends to be less important or not necessarily of interest. **bubble-tree** scales down nested information until the user shows interest in it by clicking one of its parents.
+Deeply nested information in a multi-level list tends to be less important or not necessarily of interest. **bubble-tree** scales down nested information until the user shows interest by clicking its ancestors.
 
 Touching or clicking a bubble zooms in our out on the list so that the touched bubble fills the viewport or frame. This hides its parents and increases the size of its children.
 
@@ -48,13 +48,13 @@ Add `<a href="#" id="bubbleTopLink" class="hidden">` to your page to create this
 ## 5. Customize your site
 Congratulations! Your site should be basically up and running. Now you're ready to customize it to make it your own.
 ### Portrait vs Landscape
-Nested `<ul>` lists are displayed to the right of their parent `<li>` elements. They add width, but not height, to their parents.
-At runtime, JavaScript sizes the list to fit the screen, regardless of the orientation of either.
+Nested `<ul>` lists are displayed to the right of their parent `<li>` elements. They add width, but not height, to their parents.  
 Use one `<li>` element in your top-level `<ul>` list for a landscape orientation dominated by one large circle.
-Use two or more `<li>` elements for a portrait orientation.
+Use two or more `<li>` elements for a portrait orientation.  
+At runtime, JavaScript resizes the list to fit the limiting viewport dimension.
 
 ### Background Images
-By default, background images are shown centered and scaled to cover the circle.
+Setting a CSS `background-image` for an  `<li>` element completely fills the bubble without overflowing. By default, the image is centered and scaled to cover the circle. It's easy enough to override this with your own CSS if you want something else.
 
 # Limitations
 ## Text meant to appear inside a circle can't go directly inside the `<li>` tag
