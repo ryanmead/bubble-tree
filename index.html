@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use bubble-tree</title>
+    <link rel="stylesheet" href="css/bubble-tree.css">
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            background-color: #999;
+        }
+        
+        code {
+            background-color: rgba(20,20,20,0.2);
+            /* font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; */
+            /* padding:0; */
+            /* margin:0; */
+            line-height: normal;
+            /* font-size: inherit; */
+            /* display:inline-block; */
+        }
+
+        ul#bubbleTree {
+        --base-font-size: 3cqh;
+        --subheading-font-size: 4cqh;
+        }
+
+        li#flower {
+            background-image: url('img/flower.jpg');
+        }
+
+        li#cat {
+            background-image: url('img/angel.jpg');
+        }
+
+        li#minecraft {
+            background-image: url('img/hi.png');
+        }
+
+    </style>
+</head>
+<body>
+    <header><a href="#" id='bubbleTopLink' class="hidden"></a></header>
+    <main>
+    <ul id="bubbleTree">
+        <li>
+            <p>Turn a simple bulleted list into a site like this one in minutes!</p>
+            <h1 style="padding-left:7%">bubble-tree<br>HTML&nbsp;template</h1>
+            <p class="bullet1">social media link-in-bio landing pages</p>
+            <p class="bullet1">personal home pages and CVs</p>
+            <p class="bullet1">online/offline presentations</p>
+            <ul>
+                <li>
+                    <h2>quick and easy to build</h2>
+                    <p>If you can code a few nested <code>&lt;ul&gt;...&lt;ul&gt;</code> lists, you got this!</p>
+                </li>
+                <li>
+                    <h2>the user experience</h2>
+                    <ul>
+                        <li>
+                            <h3>intuitive content scaling</h3>
+                            <p>In a multi-level list, the most important information is generally at the top level, while deeply nested information tends to be less important or not necessarily of interest.</p>
+                            <p><strong>bubble-tree</strong> scales down nested information until the user shows interest by clicking into it.</p>
+                        </li>
+                        <li>
+                            <h3>navigating</h3>
+                            <p>Touching or clicking a circle zooms in our out on the list so that the circle fills the viewport. This hides its parents and increases the size of its children.</p>
+                            <p>When zoomed in, a link for returning to the top appears in the top left. It disappears when touched.</p>
+                            <p>Offsite links are disabled when they are very small. They become active when the user zooms in close enough.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>how it works</h2>
+                    <p><strong>bubble-tree</strong> styles every <code>&lt;li&gt;</code> tag as a "bubble" (a circle with a semitransparent background) and arranges the bubbles to show the data hierarchy.</p>
+                    <p><code>&lt;li&gt;</code> elements are arranged vertically, as in a normal list. Nested <code>&lt;ul&gt;</code> lists are displayed to the right of their parent <code>&lt;li&gt;</code> elements. They add width, but not height, to their parents.</p>
+                    <ul>
+                        <li>
+                            <h3>portrait</h3>
+                            <p>Bubbles are arranged vertically like a normal list. This creates a list that is higher than it is wide, as long as there are at least two <code>&lt;li&gt;</code> elements in the top-level <code>&lt;ul&gt;</code> list.</p>
+                            <h3>landscape</h3>
+                            <p>When there is only one <code>&lt;li&gt;</code> element in the top-level <code>&lt;ul&gt;</code> list, the bubble-tree is wider than it is high, and dominated by one large circle on the left, which works well as a title page.</p>
+                        </li>
+                        <li>
+                            <h3>overall size</h3>
+                            <p>When the page loads, the list is resized to fit the limiting viewport dimension.</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h2>make your own bubble-tree</h2>
+            <p>Start with information arranged in a hierarchy<br>(i.e. a multi-level bulleted list).</p>
+            <p class="subheadingSized">complete HTML boilerplate</p>
+            <p><a href="https://github.com/ryanmead/bubble-tree">get it from github</a></p>
+            <ul>
+                <li>
+                    <h3>code some nested<br><code>&lt;ul&gt;&lt;/ul&gt;</code></h3>
+                    <!-- <p>code fragment</p> -->
+                    <p>Give the opening <code>&lt;ul&gt;</code> tag of the top-level list the id "bubbleTree" as shown.</p>
+                    <p><code>&lt;ul id="bubbleTree"&gt;</code></p>
+                    <ul>
+    
+                        <li>
+                            <!-- <h4>best practices</h4> -->
+                            <h4>follow best practice for nesting lists</h4>
+                            <p>Place each child <code>&lt;ul&gt;...&lt;/ul&gt;</code> element inside an <code>&lt;li&gt;...&lt;/li&gt;</code> tag of the parent list. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ul">more info</a></p>
+                        </li>
+                        <li>
+                            <h4>use block elements inside <code>&lt;li&gt;</code> tag</h4>
+                            <p>Text placed directly inside the <code>&lt;li&gt;</code> tag will exceed the boundary of the circle.</p>
+                            <p>To pad text so it fits in the bubble, place it inside a tag (such as <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc.) that is a child of the <code>&lt;li&gt;</code> tag.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>add the JS and CSS assets</h3>
+                    <p class="bullet1">Add <strong>bubble-tree.css</strong> to the project. Assuming it's in a folder named "css" next to your html file, link to it from your html file with a tag like <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bubble-tree.css&quot;&gt;</code> inside the <code>&lt;head&gt;</code> section.</p>
+                    <p class="bullet1">Add <strong>bubble-tree.js</strong> to the project. Assuming it's in a folder named "js" next to your html file, place a tag like <code>&lt;script src="js/bubble-tree.js"&gt;&lt;/script&gt;</code> before the closing <code>&lt;/body&gt;</code> tag.</p>
+                    <p class="bullet1">add <code>&lt;a href="#" id="bubbleTopLink" class="hidden"&gt;</code></p>
+                </li>
+                <li>
+                    <h3>use bubble-tree styling features</h3>
+                    <ul>
+                        <li>
+                            <h3>color theming</h3>
+                            <p><strong>bubble-tree</strong> uses the hsla color model.</p>
+                            <ul>
+                                <li>
+                                    <h4>random colors</h4>
+                                    <p>set <code>randomBubbleColors = true</code> in JavaScript before <strong>bubble-tree.js</strong> to randomly color the bubbles. The colors change every time the page loads. Bubbles with IDs are skipped, which prevents custom styling from being overridden.</p>
+                                </li>
+                                <li>
+                                    <h4>primary and secondary colors</h4>
+                                    <p>if <code>randomBubbleColors</code> is false or not set, <strong>bubble-tree</strong> colors the bubbles using primary and secondary color variables defined near the top of <strong>bubble-tree.css</strong>.</p>
+                                    <p>The top-of-page link uses the primary color.</p>
+                                </li>
+                                <li>
+                                    <h4>color variables and default values</h4>
+                                    <p class="code"><code>--primary-hue: 20;<br>--primary-saturation: 100%;<br>--primary-lightness: 49%;<br>--secondary-hue: 20;<br>--secondary-saturation: 0%;<br>--secondary-lightness: 30%;</code></p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="p-bullet">
+                            <h3>fonts</h3>
+                            <p class="subheadingSized">font size</p>
+                            <p>Set font size using <code>--base-font-size</code> near the top of <strong>bubble-tree.css</strong>. Use cqh units (not px, pt, em, or rem) so that the text scales with its <code>&lt;li&gt;</code> container. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries">New to container queries?</a></p>
+                            <p class="subheadingSized">bulleted lists</p>
+                            <p>For a bulleted list having up to two levels, apply the provided <code>bullet1</code> and <code>bullet2</code> classes to <code>&lt;p&gt;</code> elements.</p>
+                            <p class="bullet1">bullet1</p>
+                            <p class="bullet2">bullet2</p>
+                            <ul>
+                                <li>
+                                    <h3>headings and accessibility</h3>
+                                    <p>Follow <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements#accessibility">best practices</a> and use headings to organize a document. Never use heading elements simply to apply a desired text size.</p>
+                                    <p><strong>bubble-tree</strong> looks good with a consistent heading size within each bubble, but don't use the same heading level throughout.</p>
+                                    <p><code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, and <code>&lt;p.headingSize&gt;</code> all look alike. Use them to tell document readers how your information is organized (which may or may not match your bubbles). Use <code>&lt;p.subheadingSize&gt;</code> for secondary headings.</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>apply your own custom styling</h2>
+                    <p>To customize an <code>&lt;li&gt;</code> element, give it an ID and reference it by ID in your CSS.</p>
+                    <ul>
+                        <li>
+                            <h3>add a background image</h3>
+                            <p>Setting a CSS <code>&lt;background-image&gt;</code> for an <code>&lt;li&gt;</code> element crops the image to a circle that completely fills the bubble. By default, the image is centered and scaled to fit the circle. Override this with custom CSS if that's not what you want.</p>
+                            <ul>
+                                <!-- <li id="flower"></li> -->
+                                <li id="cat"></li>
+                                <li id="minecraft"></li>
+                            </ul>
+                        </li>
+                        <li id="positioning">
+                            <h3>positioning inside a bubble</h3>
+                            <p class="subheadingSized">flexbox</p>
+                            <p>Each <code>&lt;li&gt;</code> element is, by default, a flexbox container. Its children (other than <code>&lt;ul&gt;</code>s) are arranged from top to bottom, vertically centered in the bubble, and padded left and right.</p>
+                            <p class="subheadingSized">absolute positioning</p>
+                            <p><code>&lt;li&gt;</code> elements are absolutely positioned, so they support absolute positioning. Note that <code>&lt;li&gt;</code> elements are actually squares with rounded corners, so elements placed in the corners (e.g. <code>top:0;left:0</code>) will fall outside the circle bounds. Set <code>overflow:hidden</code> on a bubble to trim content along the edge of the circle.</p>
+                            <!-- <ul>
+    
+                                <li>
+                                    <h4>flexbox</h4>
+                                    <p>Each <code>&lt;li&gt;</code> element is, by default, a flexbox container. Its children (other than <code>&lt;ul&gt;</code>s) are arranged from top to bottom, vertically centered in the bubble, and padded left and right.</p>
+                                </li>
+                                <li>
+                                    <h4>absolute positioning</h4>
+                                    <p><code>&lt;li&gt;</code> elements are absolutely positioned, so they support absolute positioning. Set position:absolute, padding:0, top, and left on a child element. Note that <code>&lt;li&gt;</code> elements are actually squares with rounded corners, so elements placed in the corners (e.g. <code>top:0;left:0</code>) will fall outside the circle bounds. You may want to set <code>overflow:hidden</code> on any or all <code>&lt;li&gt;</code> elements to trim content along the edge of the circle. (example?)</p>
+                                    <p>picture</p>
+                                </li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>caveats</h2>
+                    <ul>
+                        <li>
+                            <h3><code>&lt;li&gt;</code> element can't contain plain text</h3>
+                            <p>The text needs to go inside a child element such as p, h1, h2, etc. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/li">This is valid HTML.</a> Text placed directly inside the <code>&lt;li&gt;</code> element will exceed the boundaries of its bubble. <a href="#positioning">more about content placement</a></p>
+                        </li>
+                        <li>
+                            <h3>max 6 list items per parent</h3>
+                            <p>If you need more than six <code>&lt;li&gt;</code> per <code>&lt;ul&gt;</code>, you can easily increase this limit by building out the CSS classes at the end of <strong>bubble-tree.css</strong>, but the bubbles will be very small relative to their parent.</p>
+                        </li>
+                        <li>
+                            <h3>doesn't play nicely with other lists</h3>
+                            <p><strong>bubble-tree</strong> can't contain a "vanilla" (unstyled) <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> list. You can style <code>&lt;p&gt;</code> tags to look like a list. <a href="#p-bullet">more info</a></p>
+                        </li>
+                        <li>
+                            <h3>occupies entire viewport</h3>
+                            <p>It is on the road map to make <strong>bubble-tree</strong> play well as part of a more complicated page layout.</p>
+                        </li>
+                        <li>
+                            <h3>distortion on extreme transforms</h3>
+                            <p>Some aspects of an element's appearance, particularly text line spacing and circle shape, distort noticeably when bubbles are very deeply nested.</p>
+                        </li>
+                        <li>
+                            <h3>underlining text</h3>
+                            <p><code>text-decoration:underline</code> doesn't work in small bubbles because the underline doesn't scale along with the font size.</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    
+    <script>
+        const randomBubbleColors = true; //if true, bubble-tree.js does what the variable name suggests. skips any bubbles with IDs assigned
+    </script>
+    <script src="js/bubble-tree.js"></script>
+    </main>
+</body>
+</html>
