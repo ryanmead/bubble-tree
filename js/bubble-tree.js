@@ -187,14 +187,30 @@ const bubbleTree = (function () {
 
         });
 
-    if ((typeof randomBubbleColors !== 'undefined')&&randomBubbleColors) {
-        const allBubbles = document.querySelectorAll('#' + topListID + ' li');
-        for (let i=0;i<allBubbles.length;i++) {
-            // var hue = 160 + parseInt(Math.random() * 80);
-            const hue = parseInt(Math.random() * 360);
-            if (!allBubbles[i].id) {
-                allBubbles[i].style.backgroundColor = 'hsla(' + hue + ', 70%, 30%, 0.5)';
-            }
+    {
+        const cs = getComputedStyle(topList);
+        const v = name => parseFloat(cs.getPropertyValue(name)) || 0;
+        const fullRandom = (typeof randomBubbleColors !== 'undefined') && randomBubbleColors;
+        const pj = { h: v('--primary-hue-variation'),   s: v('--primary-saturation-variation'),   l: v('--primary-lightness-variation') };
+        const sj = { h: v('--secondary-hue-variation'), s: v('--secondary-saturation-variation'), l: v('--secondary-lightness-variation') };
+        const anyJitter = pj.h || pj.s || pj.l || sj.h || sj.s || sj.l;
+
+        if (fullRandom || anyJitter) {
+            const firstTop = topList.querySelector(':scope > li');
+            const rand = a => (Math.random() * 2 - 1) * a;   // centered ±a
+            topList.querySelectorAll('li').forEach(li => {
+                if (fullRandom) {
+                    // var hue = 160 + parseInt(Math.random() * 80);
+                    if (!li.id) li.style.backgroundColor = 'hsla(' + parseInt(Math.random() * 360) + ', 70%, 30%, 0.5)';
+                    return;
+                }
+                // secondary = leaf OR first top-level node (mirrors the CSS)
+                const secondary = !li.querySelector(':scope > ul') || li === firstTop;
+                const j = secondary ? sj : pj;
+                li.style.setProperty('--bubble-h-offset', rand(j.h * 360));
+                li.style.setProperty('--bubble-s-offset', rand(j.s * 100) + '%');
+                li.style.setProperty('--bubble-l-offset', rand(j.l * 100) + '%');
+            });
         }
     }
 

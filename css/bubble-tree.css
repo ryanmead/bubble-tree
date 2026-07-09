@@ -5,6 +5,13 @@
         --secondary-hue: 20;
         --secondary-saturation: 0%;
         --secondary-lightness: 30%;
+        /* per-bubble color jitter (0–1 fraction; 0 = off). Applied as centered ± offset in JS. */
+        --primary-hue-variation: 0;
+        --primary-saturation-variation: 0;
+        --primary-lightness-variation: 0;
+        --secondary-hue-variation: 0;
+        --secondary-saturation-variation: 0;
+        --secondary-lightness-variation: 0;
         --alpha-value: 0.6; /* Opacity value (0.0 to 1.0) */
         --portrait-child-peek: 0.15; /* portrait gutter (0-1 of width) so children peek; shared with navigate() */
         --font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -92,7 +99,7 @@
         }
         
         > li:first-of-type {
-            background-color: hsla(var(--secondary-hue), var(--secondary-saturation), var(--secondary-lightness), var(--alpha-value));
+            background-color: hsla(calc(var(--secondary-hue) + var(--bubble-h-offset, 0)), calc(var(--secondary-saturation) + var(--bubble-s-offset, 0%)), calc(var(--secondary-lightness) + var(--bubble-l-offset, 0%)), var(--alpha-value));
         }
 
         li > * {
@@ -116,8 +123,8 @@
     ul#bubbleTree li {
         position:absolute;
         left:80%;
-        border-radius:50%; 
-        background-color: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--alpha-value));
+        border-radius:50%;
+        background-color: hsla(calc(var(--primary-hue) + var(--bubble-h-offset, 0)), calc(var(--primary-saturation) + var(--bubble-s-offset, 0%)), calc(var(--primary-lightness) + var(--bubble-l-offset, 0%)), var(--alpha-value));
         /* background-color: hsla(20, 100%, 49%, 50%); */
         pointer-events: auto;
         container-type:size;
@@ -140,11 +147,11 @@
     }
     
     ul#bubbleTree li:not(:has(ul)) { /* leaf nodes: secondary color */
-        background-color: hsla(var(--secondary-hue), var(--secondary-saturation), var(--secondary-lightness), var(--alpha-value));
+        background-color: hsla(calc(var(--secondary-hue) + var(--bubble-h-offset, 0)), calc(var(--secondary-saturation) + var(--bubble-s-offset, 0%)), calc(var(--secondary-lightness) + var(--bubble-l-offset, 0%)), var(--alpha-value));
     }
 
     ul#bubbleTree li:not(:has(ul)):hover { /* leaf nodes: secondary, full opacity */
-        background-color: hsla(var(--secondary-hue), var(--secondary-saturation), var(--secondary-lightness), 1);
+        background-color: hsla(calc(var(--secondary-hue) + var(--bubble-h-offset, 0)), calc(var(--secondary-saturation) + var(--bubble-s-offset, 0%)), calc(var(--secondary-lightness) + var(--bubble-l-offset, 0%)), 1);
     }
 
     ul#bubbleTree li:not(:has(ul)) * { /* children of leaf nodes */
